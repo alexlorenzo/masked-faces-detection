@@ -1,0 +1,5 @@
+# sorted in alphabetical order
+
+pandas
+python-dotenv
+

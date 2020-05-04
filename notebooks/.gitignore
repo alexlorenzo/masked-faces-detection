@@ -1,0 +1,5 @@
+coverage
+documentation
+*.ipynb
+.ipynb_checkpoints
+!notebooks_public/*.ipynb

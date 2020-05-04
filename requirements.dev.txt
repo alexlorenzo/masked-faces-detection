@@ -1,0 +1,14 @@
+jupyter
+ipdb
+
+# Required for tests
+pytest
+pytest-cov
+
+# Required for documentation
+sphinx
+sphinx_rtd_theme
+
+# Development tools
+black
+flake8

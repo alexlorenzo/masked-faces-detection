@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.6.5, pytest-3.5.0, py-1.5.3, pluggy-0.6.0
+rootdir: /Users/benjaminhabert/Documents/20170509_TaskForceDataEngineering_TemplateCode, inifile:
+plugins: cov-2.5.1
+collected 9 items
+
+tests/unit_tests/application/test_main.py .                              [ 11%]
+tests/unit_tests/domain/test_clean.py ....                               [ 55%]
+tests/unit_tests/infrastructure/test_technical_cleaning.py ..            [ 77%]
+tests/unit_tests/utils/examples/test_pytest_example.py .                 [ 88%]
+tests/unit_tests/utils/examples/test_unittest_example.py .               [100%]
+
+---------- coverage: platform darwin, python 3.6.5-final-0 -----------
+Name                                             Stmts   Miss  Cover
+--------------------------------------------------------------------
+myproject/__init__.py                                0      0   100%
+myproject/application/__init__.py                    0      0   100%
+myproject/application/main.py                       38     21    45%
+myproject/domain/__init__.py                         0      0   100%
+myproject/domain/clean.py                           11      0   100%
+myproject/domain/load.py                             7      4    43%
+myproject/domain/machine_learning.py                12      6    50%
+myproject/infrastructure/__init__.py                 1      0   100%
+myproject/infrastructure/files.py                   40     28    30%
+myproject/infrastructure/technical_cleaning.py       9      0   100%
+myproject/interface/__init__.py                      0      0   100%
+--------------------------------------------------------------------
+TOTAL                                              118     59    50%
+Coverage HTML written to dir coverage/htmlcov
+
+
+=========================== 9 passed in 1.09 seconds ===========================

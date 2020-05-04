@@ -1,0 +1,16 @@
+# IDE
+# pycharm settings
+.idea/
+# emacs temp files
+*~
+# emacs temp files
+\#*\#
+# vim temp files
+*.swp
+#
+.vscode
+
+.DS_Store
+
+# Demo project
+2019_Client_PyProject
