@@ -13,4 +13,6 @@
 .DS_Store
 
 # Demo project
-2019_Client_PyProject
+.venv3
+*.ipynb
+.ipynb_checkpoints

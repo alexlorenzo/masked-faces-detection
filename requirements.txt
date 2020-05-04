@@ -2,4 +2,7 @@
 
 pandas
 python-dotenv
-
+sphinx
+jupyter
+beautifulsoup4
+requests
