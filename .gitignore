@@ -5,14 +5,18 @@
 *~
 # emacs temp files
 \#*\#
-# vim temp files
-*.swp
-#
+# data folder 
+data/
+
+# Hidden files
 .vscode
-
 .DS_Store
-
-# Demo project
+*.pyc
+# Venv project
 .venv3
+.venv
 *.ipynb
 .ipynb_checkpoints
+
+# Others
+chromedriver

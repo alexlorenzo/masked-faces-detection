@@ -1,8 +1,0 @@
-# sorted in alphabetical order
-
-pandas
-python-dotenv
-sphinx
-jupyter
-beautifulsoup4
-requests
