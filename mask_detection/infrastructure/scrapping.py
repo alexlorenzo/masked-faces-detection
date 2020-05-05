@@ -1,7 +1,7 @@
 
 """ Scrap images from Google by downloading chromedriver and specify your version: https://chromedriver.chromium.org/downloads"""
 from selenium import webdriver
-from mask_detection.settings import settings as stg
+from mask_detection.settings import base as stg
 from PIL import Image
 import hashlib
 
@@ -25,17 +25,21 @@ class SearchDownload:
 
     @classmethod
     def search_and_download(self, search_term: str, driver_path: str, target_path: str, number_images: int):
-        target_folder = os.path.join(target_path, '_'.join(search_term.lower().split(' ')))
-
-        if not os.path.exists(target_folder):
-            os.makedirs(target_folder)
-
-        with webdriver.Chrome(executable_path=driver_path) as wd:
-            res = self.fetch_image_urls(query=search_term, max_links_to_fetch=number_images, wd=wd, sleep_between_interactions=0.5)
-           
-        for elem in res:
-            self._persist_image(target_folder, elem)
+        """Search images per search_term and download in target_path."""
         
+        for term in search_term:
+            target_folder = os.path.join(target_path, '_'.join(term.lower().split(' ')))
+
+            if not os.path.exists(target_folder):
+                os.makedirs(target_folder)
+
+            with webdriver.Chrome(executable_path=driver_path) as wd:
+                res = self.fetch_image_urls(query=term, max_links_to_fetch=number_images, wd=wd, sleep_between_interactions=0.5)
+                
+            for elem in res:
+                self._persist_image(target_folder, elem)
+            
+    @classmethod
     def fetch_image_urls(self, query: str, max_links_to_fetch: int, wd: webdriver, sleep_between_interactions: int=1):
         """Return Fetch images urls. """
         # build the google query
@@ -43,12 +47,13 @@ class SearchDownload:
 
         # load the page
         wd.get(search_url.format(q=query))
+        print('Load Pages OK')
 
         image_urls = set()
         image_count = 0
         results_start = 0
         while image_count < max_links_to_fetch:
-            self._scroll_to_end(wd)
+            self._scroll_to_end(wd=wd, sleep_between_interactions=0.5)
 
             # get all image thumbnail results
             thumbnail_results = wd.find_elements_by_css_selector("img.Q4LuWd")
@@ -88,12 +93,15 @@ class SearchDownload:
 
         return image_urls
     
-    def _scroll_to_end(self, wd, sleep_between_interactions=0.5):
+    @staticmethod
+    def _scroll_to_end(wd, sleep_between_interactions=0.5):
+        """Scroll windows to end."""
         wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(sleep_between_interactions)            
     
-    def _persist_image(self, folder_path: str, url: str):
-        
+    @staticmethod
+    def _persist_image(folder_path: str, url: str):
+        """Download images."""
         try:
             image_content = requests.get(url).content
 
@@ -108,8 +116,4 @@ class SearchDownload:
                 image.save(f, "JPEG", quality=85)
             print(f"SUCCESS - saved {url} - as {file_path}")
         except Exception as e:
-            print(f"ERROR - Could not save {url} - {e}")  
-        
-if __name__ == '__main__':
-    return SearchDownload
-      
+            print(f"ERROR - Could not save {url} - {e}")

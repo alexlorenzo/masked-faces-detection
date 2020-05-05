@@ -14,22 +14,30 @@ import logging
 REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 DATA_DIR = os.path.join(REPO_DIR, 'data')
 
-DATABASE_INFOS = {
-    'host': 'pyox1k01',
-    'port': 1521,
-    'service_name': 'EDW00_PP2',
-    'username': 'EDW_ANA',
-    'password': os.environ.get('DATABASE_PASSWORD'),  # this was loaded by load_dotenv
-    'default_schema': 'EDW_QUA',
-}
+SEARCH_TERM = ["masque", "crowd coronavirus mask", "crowd mask faces coronavirus"]
+DRIVER_PATH = '/Users/user/Documents/ComputerVision/MaskDetection/chromedriver'
 
 
 # Logging
-LOGGING_FORMAT = '[%(asctime)s][%(levelname)s][%(module)s] %(message)s'
-LOGGING_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
-LOGGING_LEVEL = logging.DEBUG
-logging.basicConfig(
-    format=LOGGING_FORMAT,
-    datefmt=LOGGING_DATE_FORMAT,
-    level=LOGGING_LEVEL
-)
+def enable_logging(log_filename, logging_level=logging.DEBUG):
+    """Set loggings parameters.
+
+    Parameters
+    ----------
+    log_filename: str
+    logging_level: logging.level
+
+    """
+    with open(os.path.join(LOGS_DIR, log_filename), 'a') as file:
+        file.write('\n')
+        file.write('\n')
+
+    LOGGING_FORMAT = '[%(asctime)s][%(levelname)s][%(module)s] - %(message)s'
+    LOGGING_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
+
+    logging.basicConfig(
+        format=LOGGING_FORMAT,
+        datefmt=LOGGING_DATE_FORMAT,
+        level=logging_level,
+        filename=os.path.join(LOGS_DIR, log_filename)
+    )

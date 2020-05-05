@@ -1,3 +1,32 @@
 [tool.black]
 line-length = 100
 skip-string-normalization = true
+
+[tool.poetry]
+name = "mask_detection"
+version = "0.1.0"
+description = ""
+authors = ["Alexandra Lorenzo de Brionne", "Louise Rodriguez"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pandas = "^1.0.3"
+python-dotenv = "^0.13.0"
+sklearn = "^0.0"
+tensorflow = "^2.1.0"
+tensorflow-estimator = "==2.1.0"
+tensorflow_addons = "^0.9.1"
+sphinx = "^3.0.3"
+jupyter = "^1.0.0"
+numpy = "^1.18.4"
+beautifulsoup4 = "^4.9.0"
+selenium = "^3.141.0"
+Pillow = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+pylint = "^2.4.4"
+ipython = "^7.13.0"
+flake8 = "^3.7.9"
+autopep8 = "^1.5.1"
+flake8-docstrings = "^1.5.0"
