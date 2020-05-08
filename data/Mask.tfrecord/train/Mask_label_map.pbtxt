@@ -1,0 +1,20 @@
+item {
+    name: "0",
+    id: 1,
+    display_name: "0"
+}
+item {
+    name: "1",
+    id: 2,
+    display_name: "1"
+}
+item {
+    name: "Mask",
+    id: 3,
+    display_name: "Mask"
+}
+item {
+    name: "Without_mask",
+    id: 4,
+    display_name: "Without_mask"
+}
