@@ -1,0 +1,5 @@
+classes = 2
+train = data/yolo/train.txt
+valid = data/yolo/valid.txt
+names = data/yolo/obj.names
+backup=backup/
