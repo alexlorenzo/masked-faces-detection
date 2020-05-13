@@ -4,6 +4,7 @@ import glob
 import random
 import shutil
 
+random.seed(123)
 
 def remove_img_without_label(directory):
     """Remove .txt and .jpg files without labels.
@@ -29,7 +30,7 @@ def create_train_test_valid(base_dir, dir_img, dir_label, dir_txt):
      
      for key, list_files in dict_split_data.items():
          # create .txt files
-        _create_txt_file(output_dir=dir_txt, split_folder= key, list_files= list_files)
+        _create_txt_file(output_dir= dir_txt, split_folder= key, list_files= list_files)
          # images folder 
         os.makedirs(os.path.join(dir_img, key), exist_ok=True)
         # labels folder 
@@ -41,11 +42,11 @@ def create_train_test_valid(base_dir, dir_img, dir_label, dir_txt):
             _copy_files(filename= filename.replace('.jpg', '.txt'), output=dir_label, split_folder= key)
 
 
-def _split_train_test(directory, file_type= 'jpg', pct_train=0.7, pct_valid=0.25, pct_test=0.1):
+def _split_train_test(dir, file_type= 'jpg', pct_train=0.7, pct_valid=0.25, pct_test=0.1):
     """Split in train, test, validation sets.
     Parameters
     -----------
-    directory: str
+    dir: str
         Directory to find all images
     file_type: str
         Specify file type (ex: .jpg, .txt)
@@ -57,9 +58,9 @@ def _split_train_test(directory, file_type= 'jpg', pct_train=0.7, pct_valid=0.25
        Percentage of test images"""
                
     dict_split_data= {}      
-     
+    assert os.path.exists(dir)
     # list all jpg images
-    list_img = glob.glob(os.path.join(directory,'*.'+file_type))   
+    list_img = glob.glob(os.path.join(dir,'*.'+file_type))   
     nb_images = len(list_img)
     
     dict_split_data['train']= random.sample(list_img, round(nb_images*pct_train))
@@ -94,8 +95,8 @@ def _create_txt_file(output_dir, split_folder, list_files):
     
     with open(os.path.join(output_dir, split_folder +'.txt'), 'w') as f:
         for item in list_files:
-            print(item)
-            f.write("%s\n" % item)
+            basename = os.path.basename(item)
+            f.write("%s\n" % ('images/'+ split_folder + '/' + basename))
 
 
 
