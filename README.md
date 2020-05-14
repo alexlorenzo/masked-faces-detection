@@ -29,21 +29,23 @@ If you want to execute the code right away, I added a notebook *Mask_Detection_Y
 
 ### Repository structure
 ```
--> mask_detection|
-                 | utils
-                       | scrapping.py
-                       | prepare_folder.py
-                 | output
-                      | example.jpg
-                      | example.txt
-                 | model
-                      | best.pt
-                      | yolov3-mask-spp.cfg
--> Mask_Detection_Yolov3_ultralytics.ipynb
--> pyproject.toml
--> poetry.lock
--> .gitignore
--> README.md
+masked-faces-detection
+└── yolov3: package from ultralytics yolov3 
+    ├── weights (include weights from ultralytics or Kaggle datasets)
+└── mask: include datasets (ex: in Kaggle datasets)
+    ├── images
+    |   └── include jpg files
+    ├── labels
+        |   └── include txt files
+    ├── train.txt
+    ├── test.txt
+    ├── valid.txt
+└── notebooks: some useful notebooks
+└── Mask_Detection_Yolov3_ultralytics.ipynb: implementation using Mask Datasets
+└── pyproject.toml
+└── poetry.lock
+└── .gitignore
+└── README.md
 ```
 ### Reproduce our result
 I recommend to follow the Customer [Train Custom Data](https://github.com/ultralytics/yolov3/wiki/Train-Custom-Data) from Ultralytics.
@@ -54,6 +56,6 @@ If not, follow the instruction in the notebook from this repository.
 All datasets have been found by scrapping Google images and from the real/fake datasets from  [Kaggle](https://www.kaggle.com/ciplab/real-and-fake-face-detection?).
 We have labelled all images using [CVAT](https://github.com/opencv/cvat) package and exporting our result in the YOLO format.
 You can find the pre-trained weights (Pytorch format) from the mask detector in the **model** folder.
-All the data are available in this [Kaggle](https://www.kaggle.com/alexandralorenzo/maskdetection).
+All the data are available in this [Kaggle datasets](https://www.kaggle.com/alexandralorenzo/maskdetection).
 
 
