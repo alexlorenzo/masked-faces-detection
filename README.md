@@ -1,86 +1,59 @@
-# mask_detection Project Repository
+# Mask Detector using YOLOv3
 
-Copyright : 2020, May
-Authors: Alexandra Lorenzo, Louise Rodriguez
+Ultralytics                |  On mask detection(add gif)
+:-------------------------:|:-------------------------:
+![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)  |  ![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)
 
-Masks Detection
 
+The purpose of this repository its to train your own YOLO model on new datasets for that I provide mask/no mask datasets.
 
-# Getting Started
-
-**[Generic Development Tutorials by Quantmetry](https://gitlab.com/quantmetry/qmtools/TemplateCookieCutter/tree/master/tutorials)**
-
-## 0. Clone this repository
-
+# Requirements
+To manage package and dependency easily I used the [poetry](https://python-poetry.org/) package.
+Simply use the following command line once you have installed poetry, it will create automatically a .venv folder.
 ```
-$ git clone <this project>
-$ cd <this project>
+$ poetry install 
 ```
-
-
-## Getting started
-
-### Requirements
-Following tools must be install to setup this project:
-* `python >= 3.7`
-* `poetry >= 0.12` (poetry installation guide could be found on their website)
-
-- Now that python3 is installed create your environment and activate it:
-
-    ```
-    $ make init
-    $ source activate.sh
-    ```
-
-    You sould **allways** activate your environment when working on the project.
-
-    If it fails with one of the following message :
-    ```
-    "ERROR: failed to create the .venv : do it yourself!"
-    "ERROR: failed to activate virtual environment .venv! ask for advice on #dev "
-    ```
-
-    instructions on how to create an environment by yourself can be found in the
-    [tutorials about virtual environments](https://gitlab.com/quantmetry/qmtools/TemplateCookieCutter/blob/master/tutorials/virtualenv.md)
-
-
-### Run script
-In order to run a script, following steps could be performed:
+If you have issues installing poetry, check that:
 ```
-$ source activate.sh
-$ python3 mask_detection/application/main.py
+$ poetry config --list
+```
+returns:
+```
+cache-dir = "/Users/user/Library/Caches/pypoetry"
+virtualenvs.create = true
+virtualenvs.in-project = true
+virtualenvs.path = "{cache-dir}/virtualenvs"
 ```
 
-## Useful poetry commands
+If you want to execute the code right away, I added a notebook *Mask_Detection_Yolov3_ultralytics.ipynb* that you can run in Google Colab.
+
+### Repository structure
 ```
-$ poetry new folder --name package_name
-
-$ poetry env use 3.7 # creates .venv with accurate version of python
-$ poetry env info
+-> mask_detection|
+                 | utils
+                       | scrapping.py
+                       | prepare_folder.py
+                 | output
+                      | example.jpg
+                      | example.txt
+                 | model
+                      | best.pt
+                      | yolov3-mask-spp.cfg
+-> Mask_Detection_Yolov3_ultralytics.ipynb
+-> pyproject.toml
+-> poetry.lock
+-> .gitignore
+-> README.md
 ```
+### Reproduce our result
+I recommend to follow the Customer [Train Custom Data](https://github.com/ultralytics/yolov3/wiki/Train-Custom-Data) from Ultralytics.
+If not, follow the instruction in the notebook from this repository. 
 
-Install from `poetry.lock` file that already exists
-```
-poetry install --no-root # --no-root option skips installation of the project package
-```
+### Datasets
 
-Update the latest versions of the dependencies and update `poetry.lock` file
-```
-poetry update
-```
-
-```
-poetry add pandas
-```
+All datasets have been found by scrapping Google images and from the real/fake datasets from  [Kaggle](https://www.kaggle.com/ciplab/real-and-fake-face-detection?).
+We have labelled all images using [CVAT](https://github.com/opencv/cvat) package and exporting our result in the YOLO format.
+You can find the pre-trained weights (Pytorch format) from the mask detector in the **model** folder.
+All the data are available in this [Kaggle](https://www.kaggle.com/alexandralorenzo/maskdetection).
 
 
-## Start coding! 
-
-Your code will go in the folder `mask_detection/`.
-
-You can change your settings (where data is stored, database url / passwords)
-in `mask_detection/settings/`:
-    - `.env` should contain **secret infos** (passwords)
-    - `base.py` or `dev.py` should contain the rest of the configuration
-
-Read [Project Structure documentation](https://gitlab.com/quantmetry/qmtools/TemplateCookieCutter/blob/master/tutorials/organization.md) for more details.

@@ -1,5 +1,0 @@
-classes = 2
-train = ../mask/train.txt
-valid = ../mask/test.txt
-names = data/mask.names
-backup=backup/
