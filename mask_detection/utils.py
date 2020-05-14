@@ -100,3 +100,11 @@ def _create_txt_file(output_dir, split_folder, list_files):
 
 
 
+directory = "/data/yolo/obj_train_data"
+base_dir = "/data/yolo/obj_train_data"
+dir_img = "/data/yolo/images2"
+dir_txt = "/data/yolo/"
+dir_label = "/data/yolo/labels2"
+
+remove_img_without_label(directory)
+create_train_test_valid(base_dir, dir_img, dir_label, dir_txt)
