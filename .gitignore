@@ -3,10 +3,6 @@
 .idea/
 # emacs temp files
 *~
-# emacs temp files
-\#*\#
-# data folder 
-data/
 
 # Hidden files
 .vscode
@@ -15,9 +11,9 @@ data/
 # Venv project
 .venv3
 .venv
+# Jupyter Notebooks
 *.ipynb
 .ipynb_checkpoints
 
 # Others
 chromedriver
-output/

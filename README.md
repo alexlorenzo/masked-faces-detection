@@ -22,7 +22,7 @@ returns:
 cache-dir = "/Users/user/Library/Caches/pypoetry"
 virtualenvs.create = true
 virtualenvs.in-project = true
-virtualenvs.path = "{cache-dir}/virtualenvs"
+virtualenvs.path = ".venv"
 ```
 
 If you want to execute the code right away, I added a notebook *YOLOv3 Startkit", which you can run in Kaggle.
