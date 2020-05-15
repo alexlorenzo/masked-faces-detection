@@ -5,7 +5,7 @@ Ultralytics                |  On mask detection(add gif)
 ![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)  |  ![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)
 
 
-The purpose of this repository its to train your own YOLO model on new datasets for that I provide mask/no mask datasets.
+The purpose of this repository its to train your own YOLO model on new datasets for that we provided mask/no mask datasets. 
 
 # Requirements
 To manage package and dependency easily I used the [poetry](https://python-poetry.org/) package.
@@ -25,7 +25,7 @@ virtualenvs.in-project = true
 virtualenvs.path = "{cache-dir}/virtualenvs"
 ```
 
-If you want to execute the code right away, I added a notebook *Mask_Detection_Yolov3_ultralytics.ipynb* that you can run in Google Colab.
+If you want to execute the code right away, I added a notebook *YOLOv3 Startkit", which you can run in Kaggle.
 
 ### Repository structure
 ```
@@ -53,9 +53,6 @@ If not, follow the instruction in the notebook from this repository.
 
 ### Datasets
 
-All datasets have been found by scrapping Google images and from the real/fake datasets from  [Kaggle](https://www.kaggle.com/ciplab/real-and-fake-face-detection?).
+All datasets have been found by scrapping Google images and from the real/fake datasets from [Kaggle](https://www.kaggle.com/ciplab/real-and-fake-face-detection?).
 We have labelled all images using [CVAT](https://github.com/opencv/cvat) package and exporting our result in the YOLO format.
-You can find the pre-trained weights (Pytorch format) from the mask detector in the **model** folder.
-All the data are available in this [Kaggle datasets](https://www.kaggle.com/alexandralorenzo/maskdetection).
-
-
+You can find the pre-trained weights (Pytorch format) as well as the data on the [Kaggle](https://www.kaggle.com/alexandralorenzo/maskdetection).
