@@ -1,9 +1,8 @@
 # Mask Detector using YOLOv3
 
-Ultralytics                |  On mask detection(add gif)
+Ultralytics                |  On mask detection
 :-------------------------:|:-------------------------:
-![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)  |  ![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)
-
+![](https://avatars1.githubusercontent.com/u/26833451?s=280&v=4)  |  ![](https://i.imgur.com/wKpRqX5.png)
 
 The purpose of this repository its to train your own YOLO model on new datasets for that we provided mask/no mask datasets. 
 
